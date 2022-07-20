@@ -1,0 +1,32 @@
+<table>
+  <thead>
+  <th>Name</th>
+  <th>Index</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pokemon of pokemons; let i = index">
+      <td class="pokemon-td"
+          [class.cool-bool]="pokemon.isCool">
+        {{i}}:{{pokemon.name}}
+      </td>
+    </tr>
+    <tr *ngFor="let pokemon of pokemons; let i = index">
+      <td class="pokemon-td"
+          [ngClass]="{'cool-bool': pokemon.isCool}">
+        {{i}}:{{pokemon.name}}
+      </td>
+    </tr>
+    <tr *ngFor="let pokemon of pokemons; let i = index">
+      <td class="pokemon-td"
+          [style.backgroundColor]="(pokemon.isStylish ? '#800080': '')">
+        {{i}}:{{pokemon.name}}
+      </td>
+    </tr>
+    <tr *ngFor="let pokemon of pokemons; let i = index">
+      <td class="pokemon-td"
+          [ngStyle]="{'backgroundColor': (pokemon.isStylish ? '#800080' : '')}">
+        {{i}}:{{pokemon.name}}
+      </td>
+    </tr>
+  </tbody>
+</table>
