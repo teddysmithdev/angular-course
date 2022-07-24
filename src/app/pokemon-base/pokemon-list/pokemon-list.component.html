@@ -6,6 +6,9 @@
     <th>Index</th>
     </thead>
     <tbody>
-      <app-pokemon-detail *ngFor="let pokemon of pokemons" [detail]="pokemon"></app-pokemon-detail>  
+      <app-pokemon-detail 
+      *ngFor="let pokemon of pokemons" 
+      [detail]="pokemon"
+      (remove)="handleRemove($event)"></app-pokemon-detail>  
     </tbody>
   </table>

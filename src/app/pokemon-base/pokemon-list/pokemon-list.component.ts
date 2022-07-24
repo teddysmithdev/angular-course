@@ -14,20 +14,27 @@ export class PokemonListComponent implements OnInit {
     isCool: false,
     isStylish: true
   },{
-    id: 1,
+    id: 2,
     name: 'squirtle',
     type: 'water',
     isCool: true,
     isStylish: true
   },{
-    id: 1,
+    id: 3,
     name: 'charmander',
     type: 'fire',
     isCool: true,
     isStylish: false
   }]
+
   constructor() { 
   
+  }
+
+  handleRemove(event: Pokemon) {
+    this.pokemons = this.pokemons.filter((pokemon : Pokemon) => {
+      return pokemon.id !== event.id;
+    })
   }
 
   ngOnInit(): void {
