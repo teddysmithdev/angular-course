@@ -1,0 +1,21 @@
+{
+    "pokemon": [{
+        "id": 1,
+        "name": "pikachu",
+        "type": "electric",
+        "isCool": false,
+        "isStylish": true
+    },{
+        "id": 2,
+        "name": "squirtle",
+        "type": "water",
+        "isCool": true,
+        "isStylish": true
+    },{
+        "id": 3,
+        "name": "charmander",
+        "type": "fire",
+        "isCool": true,
+        "isStylish": false
+    }]
+}
