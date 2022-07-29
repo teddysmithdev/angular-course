@@ -17,6 +17,10 @@ constructor(private http: HttpClient) {
     console.log(this.http);
  }
 
+getPokemon(id: number) : Observable<Pokemon> {
+  return this.http.get<Pokemon>(`${POKEMON_API}/1`);
+}
+
 getPokemons() : Observable<Pokemon[]> {
   return this.http.get<Pokemon[]>(POKEMON_API);
 }
