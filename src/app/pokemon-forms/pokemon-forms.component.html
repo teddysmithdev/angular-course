@@ -18,6 +18,9 @@
     [ngModel]="pokemon.isCool" 
   /> Pokemon is NOT cool
 </label>
+<label>
+  <input type="checkbox" name="acceptTerms" id="acceptTerms" class="form-check-input" [(ngModel)]="pokemon.acceptTerms">
+</label>
 </form>
 <div>
   MODEL: {{ pokemon | json }}
