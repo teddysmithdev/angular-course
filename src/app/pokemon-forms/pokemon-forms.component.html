@@ -1,12 +1,12 @@
 <form #form="ngForm">
   Pokemon Name:
-  <input type="text" [(ngModel)]="pokemon.name" name="name" />
+  <input [(ngModel)]="pokemon.name" name="name" [ngModelOptions]="{standalone:true}" />
 
 <label>
   <input type="radio" 
           name="isCool" 
           [value]="true" 
-          [ngModel]="pokemon.isCool" 
+          [ngModel]="pokemon?.isCool" 
           (ngModelChange)="toggleIsCool($event)"
           /> Pokemon is cool
 </label>
@@ -15,11 +15,17 @@
     type="radio" 
     name="isCool" 
     [value]="false" 
-    [ngModel]="pokemon.isCool" 
+    [ngModel]="pokemon?.isCool" 
   /> Pokemon is NOT cool
 </label>
 <label>
-  <input type="checkbox" name="acceptTerms" id="acceptTerms" class="form-check-input" [(ngModel)]="pokemon.acceptTerms">
+  <input type="checkbox" name="acceptTerms" id="acceptTerms" class="form-check-input" [(ngModel)]="pokemon.acceptTerms">Accept Terms?
+</label>
+<label>
+  Pokemon Type:
+  <select name="pokemonType" [ngModel]="pokemon?.name">
+    <option *ngFor="let type of pokemonType" [value]="type.key" [selected]="type.value === pokemon.type">{{ type.value }}</option>
+  </select>
 </label>
 </form>
 <div>

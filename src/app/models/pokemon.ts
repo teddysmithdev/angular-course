@@ -4,5 +4,10 @@ export interface Pokemon {
     type: string,
     isCool: boolean,
     isStylish: boolean,
-    acceptTerms: boolean
+    acceptTerms: boolean,
+  }
+
+  export interface PokemonType {
+    key: number,
+    value: string
   }
