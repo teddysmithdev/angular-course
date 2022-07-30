@@ -6,6 +6,8 @@
   <input type="radio" 
           name="isCool" 
           [value]="true" 
+          required
+          #pokemonName="ngModel"
           [ngModel]="pokemon?.isCool" 
           (ngModelChange)="toggleIsCool($event)"
           /> Pokemon is cool
@@ -20,6 +22,7 @@
 </label>
 <label>
   <input type="checkbox" name="acceptTerms" id="acceptTerms" class="form-check-input" [(ngModel)]="pokemon.acceptTerms">Accept Terms?
+  
 </label>
 <label>
   Pokemon Type:
@@ -31,4 +34,5 @@
 <div>
   MODEL: {{ pokemon | json }}
   FORM: {{ form.value | json }}
+  ERRORS: <div *ngIf="!pokemonName.pristine">NOT PRISTINE!</div>
 </div>
