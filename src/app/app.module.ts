@@ -6,11 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokemonBaseModule } from './pokemon-base/pokemon-base.module';
 import { PokemonFormsComponent } from './pokemon-forms/pokemon-forms.component';
+import { HomeComponent } from './home/home.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [				
     AppComponent,
-    PokemonFormsComponent
+    PokemonFormsComponent,
+      HomeComponent,
+      NotfoundComponent
    ],
   imports: [
     BrowserModule,
