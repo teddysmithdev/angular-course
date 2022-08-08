@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon, PokemonType } from '../models/pokemon';
-import { PokemonService } from '../_services/pokemon.service';
+import { switchMap } from 'rxjs/operators'
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Pokemon, PokemonType } from '../../models/pokemon';
+import { PokemonService } from '../../_services/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-forms',
@@ -9,7 +11,10 @@ import { PokemonService } from '../_services/pokemon.service';
 })
 export class PokemonFormsComponent implements OnInit {
   pokemon!: Pokemon;
-  constructor(private pokemonService: PokemonService) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private pokemonService: PokemonService) { }
 
   pokemonType: PokemonType[] =[
     {
@@ -36,9 +41,14 @@ export class PokemonFormsComponent implements OnInit {
 
   ngOnInit() {
     this.pokemon = {} as Pokemon;
-    this.pokemonService.getPokemon(1).subscribe((data: Pokemon) => {
-        this.pokemon = data;
-    });
+    this.route.params.subscribe((data: Params) => {
+        return this.pokemonService.getPokemon(data['id']).subscribe((data: Pokemon) => {
+          this.pokemon = data;
+      });
+    })
   }
 
+  back() : void {
+    this.router.navigate(['/pokemon'])
+  }
 }
