@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewChildren } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ContentChild, ContentChildren, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonService } from 'src/app/_services/pokemon.service';
@@ -9,13 +9,17 @@ import { PokemonDetailComponent } from '../pokemon-detail/pokemon-detail.compone
   templateUrl: './pokemon-list.component.html',
   styleUrls: ['./pokemon-list.component.css']
 })
-export class PokemonListComponent implements OnInit, AfterViewInit {
+export class PokemonListComponent implements OnInit, AfterViewInit, AfterContentInit {
   pokemons: Pokemon[] = [];
   @ViewChildren('pokemonRef') pokemonRef!: ElementRef;
+  @ContentChildren(PokemonDetailComponent) contentList!: any;
 
   constructor(private pokemonService : PokemonService) { 
     console.log(this.pokemonRef);
     
+  }
+  ngAfterContentInit(): void {
+    console.log(this.contentList);
   }
   ngAfterViewInit(): void {
     console.log(this.pokemonRef)

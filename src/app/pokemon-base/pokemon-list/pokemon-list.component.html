@@ -8,7 +8,7 @@
         #pokemonRef
         *ngFor="let pokemon of pokemons"
         [detail]="pokemon"
-        (remove)="handleRemove($event)"><h1>{{ pokemon.name }}</h1>
+        (remove)="handleRemove($event)"><h1 #contentRef>{{ pokemon.name }}</h1>
       </app-pokemon-detail>  
     </tbody>
   </table>
