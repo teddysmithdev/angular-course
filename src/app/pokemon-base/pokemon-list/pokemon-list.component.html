@@ -1,14 +1,16 @@
 <table>
     <thead>
-    <th #pokemonTh >Name</th>
+    <th>Name</th>
     <th>Index</th>
     </thead>
     <tbody>
       <app-pokemon-detail 
-        #pokemonRef
         *ngFor="let pokemon of pokemons"
         [detail]="pokemon"
         (remove)="handleRemove($event)"><h1 #contentRef>{{ pokemon.name }}</h1>
       </app-pokemon-detail>  
     </tbody>
+    <div highlight-text>Hello</div>
+    <h2 *customif="true">This is true</h2>
+    <h2 *customif="false">This is false</h2>
   </table>
