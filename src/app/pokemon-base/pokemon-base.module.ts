@@ -10,17 +10,19 @@ import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.componen
 import { PokemonService } from '../_services/pokemon.service';
 import { RouterModule, Routes } from '@angular/router';
 import { PokemonFormsComponent } from './pokemon-forms/pokemon-forms.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HighlightTextDirective } from '../_directives/highlight-text.directive';
 import { CustomifDirective } from '../_directives/customif.directive';
+import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 
 
 const routes: Routes = [
   {
     path: '',
     children: [
-      { path: '', component: PokemonListComponent},
-      { path: ':id', component: PokemonFormsComponent}
+      { path: '', component: PokemonListComponent },
+      { path: 'form', component: ReactiveFormsComponent },
+      { path: ':id', component: PokemonFormsComponent }
     ]
   }
 ];
@@ -31,12 +33,14 @@ const routes: Routes = [
     PokemonListComponent,
     PokemonDetailComponent,
     PokemonFormsComponent,
+    ReactiveFormsComponent,
     HighlightTextDirective,
     CustomifDirective
   ],
   imports: [
     CommonModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     RouterModule.forChild(routes)
   ],
@@ -44,6 +48,7 @@ const routes: Routes = [
     PokemonListComponent,
     PokemonDetailComponent,
     PokemonFormsComponent,
+    ReactiveFormsComponent,
     RouterModule
   ],
   providers: [
